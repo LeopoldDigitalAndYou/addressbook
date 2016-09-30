@@ -22,12 +22,13 @@ app.use(function (req, res, next) {
 
 // JSON API
 app.get(apiPath, api.query);
-app.get(apiPath + ':id', api.get);
-app.get(apiPath + ':id/birthday', api.getBirthday);
+app.get(apiPath + '/search/:name', api.searchByName);
+app.get(apiPath + '/:id', api.get);
+app.get(apiPath + '/:id/birthday', api.getBirthday);
 app.post(apiPath, api.add);
-app.put(apiPath + ':id', api.update);
-app.delete(apiPath + ':id', api.delete);
+app.put(apiPath + '/:id', api.update);
+app.delete(apiPath + '/:id', api.delete);
 
 server.listen(app.get('port'), function () {
-	console.log('Express server listening on http://localhost:%d/' + 'server/api/movie-list', app.get('port'));
+	console.log('Express server listening on http://localhost:%d' + apiPath, app.get('port'));
 });
