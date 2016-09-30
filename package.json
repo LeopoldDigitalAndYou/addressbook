@@ -1,0 +1,29 @@
+{
+  "name": "addressbook",
+  "version": "1.0.0",
+  "description": "Small address book in Node.js to learn Node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeopoldDigitalAndYou/addressbook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeopoldDigitalAndYou/addressbook/issues"
+  },
+  "homepage": "https://github.com/LeopoldDigitalAndYou/addressbook#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "colors": "^1.1.2",
+    "express": "^4.14.0",
+    "http": "0.0.0",
+    "lodash": "^4.16.2",
+    "path": "^0.12.7",
+    "serve-static": "^1.11.1"
+  }
+}
