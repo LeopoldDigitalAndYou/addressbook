@@ -14,13 +14,10 @@ angular.module('addressApp').directive('birthday', function (Birthday) {
 					function () {
 						scope.name = entryController.person.name;
 					});
+			scope.sendGift = entryController.receiveGift;
 		},
 		controller: function ($scope, Birthday) {
 			$scope.birthday = Birthday.get({id: $scope.personId});
-
-			$scope.sendGift = function () {
-				//
-			}
 		}
 	};
 });

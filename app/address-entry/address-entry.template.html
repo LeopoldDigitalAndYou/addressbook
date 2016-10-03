@@ -1,5 +1,8 @@
-<div>
-    <h2>{{person.name}}</h2>
+<div style="background: {{ jealousy | envyGreen }}">
+    <h2>
+        {{person.name}}
+        <span>{{gifts}}</span>
+    </h2>
     <p ng-transclude></p>
     <dl>
         <dt>Adresse</dt>

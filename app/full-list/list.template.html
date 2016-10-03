@@ -1,3 +1,5 @@
+<p ng-if="nbGifts">{{nbGifts}} cadeau{{nbGifts > 1 ? 'x' : ''}}</p>
+
 <ul>
     <li ng-repeat="person in people">
         <address-entry person-id="person.id">
