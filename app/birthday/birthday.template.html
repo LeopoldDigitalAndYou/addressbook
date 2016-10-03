@@ -1,0 +1,5 @@
+<span>{{ birthday.day }}/{{ birthday.month }}</span>
+<span>{{ birthday | birthday }}</span>
+<button type="button" ng-submit="sendGift()">
+    Envoyer un cadeau à {{ name || 'cette personne' }}
+</button>

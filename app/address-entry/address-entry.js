@@ -5,8 +5,10 @@ angular.module('addressApp').directive('addressEntry', function(Address){
 		scope: {
 			personId: '='
 		},
+		transclude: true,
 		controller: function ($scope, Address) {
-			$scope.person = Address.get({id: $scope.personId});
+			this.person = Address.get({id: $scope.personId});
+			$scope.person = this.person;
 		}
 	};
 });

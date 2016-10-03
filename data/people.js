@@ -31,6 +31,16 @@ exports.people = [
 	},
 	{
 		id: 4,
+		name: "Annie Versaire",
+		address: "18 rue du Gâteau",
+		birthdate: {
+			day: 3,
+			month: 10,
+			year: 2001
+		}
+	},
+	{
+		id: 5,
 		name: "Test",
 		address: "Test",
 		birthdate: {

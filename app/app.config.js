@@ -5,6 +5,9 @@ angular.module('addressApp').config(
 		when('/', {
 			template: '<full-list></full-list>',
 		}).
+		when('/:id', {
+			template: '<address-details></address-details>',
+		}).
 		otherwise('/');
 	}
 );
