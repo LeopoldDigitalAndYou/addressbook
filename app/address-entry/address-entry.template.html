@@ -1,0 +1,9 @@
+<div>
+    <h2>{{person.name}}</h2>
+    <dl>
+        <dt>Adresse</dt>
+        <dd>{{person.address || 'Adresse inconnue'}}</dd>
+        <dt>Date de naissance</dt>
+        <dd>{{person.birthdate.year || '??'}}-{{person.birthdate.month || '??'}}-{{person.birthdate.day  || '??'}}</dd>
+    </dl>
+</div>

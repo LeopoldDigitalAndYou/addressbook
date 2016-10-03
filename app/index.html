@@ -1,16 +1,20 @@
 <!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Carnet d'adresses</title>
-    </head>
-    <body>
-<h1>Le serveur marche&nbsp;!</h1>
+<html ng-app="addressApp" lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Carnet d'adresses</title>
+</head>
+<body>
+<div ng-view></div>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 
+<script src="app.module.js"></script>
+<script src="app.config.js"></script>
+<script src="full-list/full-list.js"></script>
+<script src="address-entry/address-entry.js"></script>
 <script src="services/Address.service.js"></script>
-    </body>
+</body>
 </html>
