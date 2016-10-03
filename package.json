@@ -20,7 +20,8 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "http": "0.0.0"
+    "http": "0.0.0",
+    "serve-static": "^1.11.1"
   },
   "devDependencies": {
     "jasmine": "^2.5.2"
