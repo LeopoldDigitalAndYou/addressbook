@@ -28,5 +28,15 @@ exports.people = [
 			month: 12,
 			year: 2001
 		}
+	},
+	{
+		id: 4,
+		name: "Test",
+		address: "Test",
+		birthdate: {
+			day: 1,
+			month: 1,
+			year: 2001
+		}
 	}
 ];

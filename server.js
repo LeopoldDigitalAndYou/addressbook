@@ -11,6 +11,11 @@ var app = express();
 var server = http.createServer(app);
 
 app.set('port', process.env.PORT || 3002);
+app.use(function (req, res, next) {
+	req.headers['content-type'] = 'application/json';
+	next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(function (req, res, next) {
@@ -22,6 +27,7 @@ app.use(function (req, res, next) {
 
 // JSON API
 app.get(apiPath, api.query);
+app.get(apiPath + '/search/', api.badRequest);
 app.get(apiPath + '/search/:name', api.searchByName);
 app.get(apiPath + '/:id', api.get);
 app.get(apiPath + '/:id/birthday', api.getBirthday);
