@@ -1,4 +1,4 @@
-angular.module('addressApp').directive('birthday', function (Birthday) {
+angular.module('addressApp').directive('birthday', function (Birthday, Gift) {
 	return {
 		templateUrl: 'birthday/birthday.template.html',
 		restrict: 'E',
@@ -14,9 +14,9 @@ angular.module('addressApp').directive('birthday', function (Birthday) {
 					function () {
 						scope.name = entryController.person.name;
 					});
-			scope.sendGift = entryController.receiveGift;
+			scope.sendGift = entryController.sendGift;
 		},
-		controller: function ($scope, Birthday) {
+		controller: function ($scope, Birthday, Gift) {
 			$scope.birthday = Birthday.get({id: $scope.personId});
 		}
 	};

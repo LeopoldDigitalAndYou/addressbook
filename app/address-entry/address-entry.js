@@ -1,4 +1,4 @@
-angular.module('addressApp').directive('addressEntry', function (Address) {
+angular.module('addressApp').directive('addressEntry', function (Address, Gift) {
 	return {
 		templateUrl: 'address-entry/address-entry.template.html',
 		restrict: 'E',
@@ -7,29 +7,37 @@ angular.module('addressApp').directive('addressEntry', function (Address) {
 		},
 		require: '?^fullList',
 		transclude: true,
-		link: function (scope, tElement, tAttrs, listController) {
-			if (listController) {
-				var entryIndex = listController.register(scope);
-				scope.registerGifts = function () {
-					listController.setGifts(entryIndex);
-				}
-			}
+		link: function (scope) {
+			scope.entryIndex = Gift.register(scope.giftApi);
 		},
-		controller: function ($scope, Address) {
+		controller: function ($scope, Address, Gift) {
 			this.person = Address.get({id: $scope.personId});
 			$scope.person = this.person;
 
-			$scope.gifts = '';
-			$scope.jealousy = 0;
-			this.receiveGift = function () {
+			var getNbGifts = function() {
+				return [...$scope.gifts].length;
+			};
+			var resetGifts = function() {
+				$scope.gifts = '';
+				$scope.jealousy = 0;
+			};
+			var receiveGift = function () {
 				$scope.gifts += '\u{1f381}';
 				$scope.jealousy = 0;
-				if ($scope.registerGifts) {
-					$scope.registerGifts();
-				}
 			};
-			$scope.covet = function () {
+			var covet = function () {
 				$scope.jealousy++;
+			};
+			$scope.giftApi = {
+				getNbGifts: getNbGifts,
+				resetGifts: resetGifts,
+				receiveGift: receiveGift,
+				covet: covet
+			};
+			resetGifts();
+
+			this.sendGift = function() {
+				Gift.sendGiftTo($scope.entryIndex);
 			}
 		}
 	};
