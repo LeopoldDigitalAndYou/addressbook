@@ -7,8 +7,10 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 		},
 		require: '?^fullList',
 		transclude: true,
-		link: function (scope) {
+		link: function (scope, tElem, tAttrs, listController) {
 			scope.entryIndex = Gift.register(scope.giftApi);
+
+			scope.linkToDetails = !!listController;
 		},
 		controller: function ($scope, Address, Gift) {
 			this.person = Address.get({id: $scope.personId});
