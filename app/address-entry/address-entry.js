@@ -12,10 +12,11 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 
 			scope.linkToDetails = !!listController;
 		},
-		controller: function ($scope, Address, Gift) {
+		controller: function ($compile, $scope, Address, Gift) {
 			this.person = Address.get({id: $scope.personId});
 			$scope.person = this.person;
 
+			// gifts
 			var getNbGifts = function() {
 				return [...$scope.gifts].length;
 			};
@@ -40,7 +41,17 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 
 			this.sendGift = function() {
 				Gift.sendGiftTo($scope.entryIndex);
-			}
+			};
+			// end gifts
+
+			$scope.editing = false;
+			$scope.startEdit = function(){
+				$scope.editing = true;
+			};
+			$scope.submitEdit = function(){
+				$scope.editing = false;
+				$scope.person.$update();
+			};
 		}
 	};
 });
