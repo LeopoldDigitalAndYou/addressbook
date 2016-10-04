@@ -20,7 +20,7 @@ angular.module('addressApp').directive('presentSender',
 
 								childScope.birthday = birthday;
 								childScope.name = entryController.person.name;
-								childScope.sendGift = entryController.receiveGift;
+								childScope.sendGift = entryController.sendGift;
 
 								var digested = $compile(template)(childScope);
 								tElement.append(digested);

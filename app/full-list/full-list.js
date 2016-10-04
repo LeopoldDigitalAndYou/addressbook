@@ -7,6 +7,7 @@ angular.module('addressApp').directive('fullList', function (Address, Gift) {
 			$scope.people = Address.query();
 
 			$scope.nbGifts = 0;
+			Gift.clear();
 			$scope.$watch(Gift.countGifts, function () {
 				$scope.nbGifts = Gift.countGifts();
 			});
