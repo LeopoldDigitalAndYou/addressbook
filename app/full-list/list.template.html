@@ -1,4 +1,8 @@
-<p ng-if="nbGifts">{{nbGifts}} cadeau{{nbGifts > 1 ? 'x' : ''}}</p>
+<p ng-if="nbGifts">{{nbGifts}} cadeau<ng-pluralize
+        count="nbGifts" when="{
+        'one': '',
+        'other': 'x'
+        }"></ng-pluralize></p>
 
 <ul>
     <li ng-repeat="person in people">

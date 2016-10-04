@@ -34,7 +34,7 @@ exports.people = [
 		name: "Annie Versaire",
 		address: "18 rue du Gâteau",
 		birthdate: {
-			day: 3,
+			day: 4,
 			month: 10,
 			year: 2001
 		}

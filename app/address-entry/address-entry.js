@@ -10,7 +10,7 @@ angular.module('addressApp').directive('addressEntry', function (Address) {
 		link: function (scope, tElement, tAttrs, listController) {
 			if (listController) {
 				var entryIndex = listController.register(scope);
-				scope.registerGifts = function(){
+				scope.registerGifts = function () {
 					listController.setGifts(entryIndex);
 				}
 			}
@@ -24,9 +24,11 @@ angular.module('addressApp').directive('addressEntry', function (Address) {
 			this.receiveGift = function () {
 				$scope.gifts += '\u{1f381}';
 				$scope.jealousy = 0;
-				$scope.registerGifts();
+				if ($scope.registerGifts) {
+					$scope.registerGifts();
+				}
 			};
-			$scope.covet = function() {
+			$scope.covet = function () {
 				$scope.jealousy++;
 			}
 		}
