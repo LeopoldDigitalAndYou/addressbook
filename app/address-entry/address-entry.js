@@ -13,7 +13,7 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 
 			scope.eraseEntry = function() {
 				tElem.css('text-decoration', 'line-through');
-				tElem.find('h2').append('<strong style="text-decoration: none;">supprimé</strong>');
+				tElem.find('h2').append('<strong style="text-decoration: none; display: inline-block;">supprimé</strong>');
 			}
 		},
 		controller: function ($compile, $scope, Address, Gift) {
