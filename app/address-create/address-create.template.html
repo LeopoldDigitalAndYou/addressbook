@@ -1,4 +1,6 @@
 <p ng-if="!creating" class="editTools">
     <button ng-click="startEdit()">Nouvelle adresse</button>
 </p>
-<address-form ng-if="creating"></address-form>
+<address-form ng-if="creating"
+              submit-edit="submitEdit(newPerson)"
+              cancel-edit="cancelEdit()"></address-form>

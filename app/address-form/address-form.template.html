@@ -33,7 +33,7 @@
         </dd>
     </dl>
     <div class="editTools">
-        <button ng-click="entryEdit.$valid && submitEdit(newPerson)">Sauvegarder</button>
+        <button ng-click="entryEdit.$valid && submitEdit({newPerson: newPerson})">Sauvegarder</button>
         <button ng-click="cancelEdit()">Annuler</button>
     </div>
 </form>

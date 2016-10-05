@@ -55,10 +55,10 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 			$scope.startEdit = function(){
 				$scope.editing = true;
 			};
-			this.cancelEdit = function(){
+			$scope.cancelEdit = function(){
 				$scope.editing = false;
 			};
-			this.submitEdit = function(newPerson){
+			$scope.submitEdit = function(newPerson){
 				$scope.editing = false;
 				for(var k in newPerson) {
 					$scope.person[k] = newPerson[k];

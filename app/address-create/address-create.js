@@ -13,12 +13,12 @@ angular.module('addressApp').directive('addressCreate', function () {
 			$scope.startEdit = function() {
 				$scope.creating = true;
 			};
-			this.submitEdit = function(person) {
+			$scope.submitEdit = function(person) {
 				$scope.creating = false;
 				$scope.editing = false;
 				$scope.addPerson(person);
 			};
-			this.cancelEdit = function() {
+			$scope.cancelEdit = function() {
 				$scope.creating = false;
 				$scope.editing = false;
 			};
