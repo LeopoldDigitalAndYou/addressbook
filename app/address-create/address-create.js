@@ -8,7 +8,6 @@ angular.module('addressApp').directive('addressCreate', function () {
 			scope.addPerson = listController.addPerson;
 		},
 		controller: function ($scope, Address) {
-			$scope.person = {};
 			$scope.creating = false;
 			$scope.editing = true;
 			$scope.startEdit = function() {
