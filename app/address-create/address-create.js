@@ -19,6 +19,10 @@ angular.module('addressApp').directive('addressCreate', function () {
 				$scope.editing = false;
 				$scope.addPerson(person);
 			};
+			this.cancelEdit = function() {
+				$scope.creating = false;
+				$scope.editing = false;
+			};
 		}
 	};
 });

@@ -55,8 +55,12 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 			$scope.startEdit = function(){
 				$scope.editing = true;
 			};
+			this.cancelEdit = function(){
+				$scope.editing = false;
+			};
 			this.submitEdit = function(person){
 				$scope.editing = false;
+				$scope.person = person;
 				person.$update();
 			};
 

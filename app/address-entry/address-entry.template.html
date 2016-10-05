@@ -1,34 +1,37 @@
-<div ng-if="!editing" class="addressEntry">
-    <h2>
-        <a ng-if="linkToDetails" href="{{'#!/' + person.id}}">{{person.name}}</a>
-        <span ng-if="!linkToDetails">{{person.name}}</span>
-        <span>{{gifts}}</span>
-    </h2>
-    <div
-            style=" color: white;
+<div class="addressEntry">
+    <div ng-if="!editing">
+        <h2>
+            <a ng-if="linkToDetails" href="{{'#!/' + person.id}}">{{person.name}}</a>
+            <span ng-if="!linkToDetails">{{person.name}}</span>
+            <span>{{gifts}}</span>
+        </h2>
+        <div
+                style=" color: white;
             background: {{ jealousy | envyGreen }};
             width: {{3*jealousy}}em;
             max-width: 100%;
             height:2em;
             overflow: hidden;"
-            title="Niveau de jalousie">
-        Jalousie
-    </div>
-    <div class="editTools">
-        <button ng-if="!deleting" ng-click="startEdit()">Modifier</button>
-        <button ng-if="!deleting" ng-click="startDeletion()">Supprimer</button>
-        <div ng-if="deleting">
-            Supprimer {{person.name}}&nbsp;?
-            <a href="" ng-click="cancelDeletion()">Annuler</a> /
-            <button ng-click="submitDeletion()">Supprimer</button>
+                title="Niveau de jalousie">
+            Jalousie
         </div>
+        <div class="editTools">
+            <button ng-if="!deleting" ng-click="startEdit()">Modifier</button>
+            <button ng-if="!deleting" ng-click="startDeletion()">Supprimer</button>
+            <div ng-if="deleting">
+                Supprimer {{person.name}}&nbsp;?
+                <a href="" ng-click="cancelDeletion()">Annuler</a> /
+                <button ng-click="submitDeletion()">Supprimer</button>
+            </div>
+        </div>
+        <p ng-transclude></p>
+        <dl>
+            <dt>Adresse</dt>
+            <dd>{{person.address || 'Adresse inconnue'}}</dd>
+            <dt>Date de naissance</dt>
+            <dd>{{person.birthdate.year || '??'}}-{{person.birthdate.month || '??'}}-{{person.birthdate.day || '??'}}
+            </dd>
+        </dl>
     </div>
-    <p ng-transclude></p>
-    <dl>
-        <dt>Adresse</dt>
-        <dd>{{person.address || 'Adresse inconnue'}}</dd>
-        <dt>Date de naissance</dt>
-        <dd>{{person.birthdate.year || '??'}}-{{person.birthdate.month || '??'}}-{{person.birthdate.day  || '??'}}</dd>
-    </dl>
+    <address-form ng-if="editing"></address-form>
 </div>
-<address-form ng-if="editing"></address-form>

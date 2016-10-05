@@ -8,10 +8,12 @@ angular.module('addressApp').directive('addressForm', function (Address) {
 			var parentController = parentControllers.reduce((c1, c2) => c1 || c2);
 			if(parentController) {
 				scope.submitEdit = parentController.submitEdit;
-				scope.person = parentController.person || {};
+				scope.cancelEdit = parentController.cancelEdit;
+				scope.person = angular.copy(parentController.person) || {};
 			}
 			else {
 				scope.submitEdit = ()=>{};
+				scope.cancelEdit = ()=>{};
 				scope.person = {};
 				throw new Error('Address edit form not tied to any address entry');
 			}
