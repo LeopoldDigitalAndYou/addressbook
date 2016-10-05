@@ -8,26 +8,26 @@ angular.module('addressApp').directive('presentSender',
 				require: '^addressEntry',
 				link: function (scope, tElement, tAttrs, entryController) {
 
-					function digest() {
+					function changeTemplate(birthday) {
 						var childScope = scope.$new();
-						scope.getBirthday().then(
-								function (birthday) {
-									if (IsBirthday(birthday)) {
-										var template = '<birthday></birthday>';
-									}
-									else {
-										var template = '<unbirthday></unbirthday>';
-									}
+						if (IsBirthday(birthday)) {
+							var template = '<birthday></birthday>';
+						}
+						else {
+							var template = '<unbirthday></unbirthday>';
+						}
 
-									childScope.birthday = birthday;
-									childScope.name = entryController.person.name;
-									childScope.sendGift = entryController.sendGift;
+						childScope.birthday = birthday;
+						childScope.name = entryController.person.name;
+						childScope.sendGift = entryController.sendGift;
 
-									var digested = $compile(template)(childScope);
-									tElement.html('');
-									tElement.append(digested);
-								}
-						);
+						var digested = $compile(template)(childScope);
+						tElement.html('');
+						tElement.append(digested);
+					}
+
+					function digest() {
+						scope.getBirthday().then(changeTemplate, changeTemplate);
 					}
 
 					scope.$watch(

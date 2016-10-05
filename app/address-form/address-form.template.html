@@ -11,9 +11,6 @@
         </span>
         <span>{{gifts}}</span>
     </h2>
-    <div class="editTools">
-        <button ng-click="entryEdit.$valid && submitEdit(person)">Terminé</button>
-    </div>
     <dl>
         <dt><label for="address">Adresse</label></dt>
         <dd><input type="text"
@@ -36,4 +33,7 @@
         >
         </dd>
     </dl>
+    <div class="editTools">
+        <button ng-click="entryEdit.$valid && submitEdit(person)">Terminé</button>
+    </div>
 </form>

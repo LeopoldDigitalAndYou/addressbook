@@ -1,9 +1,17 @@
-<div ng-if="!editing" style="background: {{ jealousy | envyGreen }}">
+<div ng-if="!editing">
     <h2>
         <a ng-if="linkToDetails" href="{{'#!/' + person.id}}">{{person.name}}</a>
         <span ng-if="!linkToDetails">{{person.name}}</span>
         <span>{{gifts}}</span>
     </h2>
+    <div
+            style=" color: white;
+            background: {{ jealousy | envyGreen }};
+            width: {{3*jealousy}}em;
+            height:2em;
+            overflow: hidden;">
+        Niveau de jalousie
+    </div>
     <div class="editTools">
         <button ng-if="!deleting" ng-click="startEdit()">Modifier</button>
         <button ng-if="!deleting" ng-click="startDeletion()">Supprimer</button>
