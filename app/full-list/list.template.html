@@ -1,15 +1,19 @@
 <p ng-if="nbGifts" id="giftCounter" class="">{{nbGifts}} cadeau<ng-pluralize
-        count="nbGifts" when="{
+            count="nbGifts" when="{
         'one': '',
         'other': 'x'
         }"></ng-pluralize>
-<button ng-click="clearGifts()">Mettre à zéro</button>
+    <button ng-click="clearGifts()">Mettre à zéro</button>
 </p>
 
 <address-create></address-create>
 
+<form class="searchTools">
+    <input type="text" ng-model="uQuery" placeholder="Chercher…">
+</form>
+
 <ul>
-    <li ng-repeat="person in people">
+    <li ng-repeat="person in people | filter:uQuery | orderBy:'name' ">
         <address-entry editing="" person-id="person.id">
             <present-sender person-id="person.id"></present-sender>
         </address-entry>
