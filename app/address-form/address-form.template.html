@@ -1,0 +1,39 @@
+<form style="background: {{ jealousy | envyGreen }}" name="entryEdit">
+    <h2>
+        <span>
+            <label>Nom&nbsp;<input
+                    type="text"
+                    ng-model="person.name"
+                    name="name"
+                    id="name"
+                    required="required"
+                    ng-maxlength="512"></label>
+        </span>
+        <span>{{gifts}}</span>
+    </h2>
+    <div class="editTools">
+        <button ng-click="entryEdit.$valid && submitEdit(person)">Terminé</button>
+    </div>
+    <dl>
+        <dt><label for="address">Adresse</label></dt>
+        <dd><input type="text"
+                   id="address"
+                   name="address"
+                   ng-model="person.address"
+                   ng-maxlength="1024"></dd>
+        <dt>Date de naissance</dt>
+        <dd><input type="number"
+                   id="birthYear" name="birthYear"
+                   ng-model="person.birthdate.year"
+        >-<input type="number"
+                 id="birthMonth" name="birthMonth"
+                 min="1" max="12"
+                 ng-model="person.birthdate.month"
+        >-<input type="number"
+                 id="birthDay" name="birthDay"
+                 min="1" max="31"
+                 ng-model="person.birthdate.day"
+        >
+        </dd>
+    </dl>
+</form>

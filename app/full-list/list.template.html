@@ -4,9 +4,11 @@
         'other': 'x'
         }"></ng-pluralize></p>
 
+<address-create></address-create>
+
 <ul>
     <li ng-repeat="person in people">
-        <address-entry person-id="person.id">
+        <address-entry editing="" person-id="person.id">
             <present-sender person-id="person.id"></present-sender>
         </address-entry>
     </li>

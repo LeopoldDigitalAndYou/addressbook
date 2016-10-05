@@ -11,6 +11,12 @@ angular.module('addressApp').directive('fullList', function (Address, Gift) {
 			$scope.$watch(Gift.countGifts, function () {
 				$scope.nbGifts = Gift.countGifts();
 			});
+
+			this.addPerson = function(person) {
+				Address.save(person).$promise.then(function(newPerson){
+					$scope.people.push(newPerson);
+				});
+			}
 		}
 	};
 });

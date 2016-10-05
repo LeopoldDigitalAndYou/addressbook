@@ -3,17 +3,23 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 		templateUrl: 'address-entry/address-entry.template.html',
 		restrict: 'E',
 		scope: {
-			personId: '='
+			personId: '=',
 		},
 		require: '?^fullList',
 		transclude: true,
 		link: function (scope, tElem, tAttrs, listController) {
 			scope.entryIndex = Gift.register(scope.giftApi);
-
 			scope.linkToDetails = !!listController;
+
+			scope.eraseEntry = function() {
+				tElem.css('text-decoration', 'line-through');
+				tElem.find('h2').append('<strong style="text-decoration: none;">supprimé</strong>');
+			}
 		},
 		controller: function ($compile, $scope, Address, Gift) {
-			this.person = Address.get({id: $scope.personId});
+			if($scope.personId !== undefined) {
+				this.person = Address.get({id: $scope.personId});
+			}
 			$scope.person = this.person;
 
 			// gifts
@@ -44,13 +50,29 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 			};
 			// end gifts
 
+			// edit
 			$scope.editing = false;
 			$scope.startEdit = function(){
 				$scope.editing = true;
 			};
-			$scope.submitEdit = function(){
+			this.submitEdit = function(person){
 				$scope.editing = false;
+				person.$update();
+			};
+
+			// delete
+			$scope.deleting = false;
+			$scope.startDeletion = function(){
+				$scope.deleting = true;
+			};
+			$scope.cancelDeletion = function(){
+				$scope.deleting = false;
 				$scope.person.$update();
+			};
+			$scope.submitDeletion = function(){
+				$scope.deleting = false;
+				$scope.person.$delete();
+				$scope.eraseEntry();
 			};
 		}
 	};
