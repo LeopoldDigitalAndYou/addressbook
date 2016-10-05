@@ -1,4 +1,4 @@
-<p ng-if="nbGifts">{{nbGifts}} cadeau<ng-pluralize
+<p ng-if="nbGifts" id="giftCounter" class="">{{nbGifts}} cadeau<ng-pluralize
         count="nbGifts" when="{
         'one': '',
         'other': 'x'
@@ -13,3 +13,5 @@
         </address-entry>
     </li>
 </ul>
+
+<address-create></address-create>
