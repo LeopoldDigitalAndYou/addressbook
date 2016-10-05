@@ -1,0 +1,11 @@
+.editTools {
+    float: right;
+}
+
+.addressEntry {
+    clear: both;
+    border-bottom: 1px solid #aaaaaa;
+}
+ul li {
+    list-style: none;
+}
