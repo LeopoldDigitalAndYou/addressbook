@@ -9,12 +9,13 @@
 <address-create add-person="addPerson"></address-create>
 
 <form class="searchTools">
-    <input type="text" ng-model="uQuery" placeholder="Chercher…">
+    <p><input type="text" ng-model="uQuery" placeholder="Chercher…"></p>
+    <p><label><input type="checkbox" ng-model="uFullView">&nbsp;Vue détaillée</label></p>
 </form>
 
 <ul>
     <li ng-repeat="person in people | filter:uQuery | orderBy:'name' ">
-        <address-entry editing="" person-id="person.id">
+        <address-entry editing="" person-id="person.id" full-view="uFullView">
             <present-sender person-id="person.id"></present-sender>
         </address-entry>
     </li>

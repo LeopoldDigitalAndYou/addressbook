@@ -5,7 +5,7 @@ angular.module('addressApp').directive('fullList', function (Address, Gift) {
 		scope: {},
 		controller: function ($scope, Address, Gift) {
 			$scope.people = Address.query();
-			$scope.uOrder = 'name';
+			$scope.uFullView = false;
 
 			$scope.clearGifts = function () {
 				$scope.nbGifts = 0;

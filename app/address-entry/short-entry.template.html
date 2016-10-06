@@ -1,0 +1,9 @@
+<div class="addressEntry"
+     style="color: white; background: {{ jealousy | envyGreen }};">
+    <h2>
+        <a ng-if="linkToDetails" href="{{'#!/' + person.id}}">{{person.name}}</a>
+        <span ng-if="!linkToDetails">{{person.name}}</span>
+        <span>{{gifts}}</span>
+    </h2>
+    <p ng-transclude></p>
+</div>
