@@ -1,0 +1,20 @@
+<div>
+    <div ng-show="collapsed">
+        <div ng-transclude="summarySlot"></div>
+        <p style="text-align: right;">
+            <a ng-click="uncollapse()">
+                <i class="fa fa-angle-double-down" aria-hidden="true" style="font-size: larger"></i>
+                Plus
+            </a>
+        </p>
+    </div>
+    <div ng-show="!collapsed">
+        <div ng-transclude></div>
+        <p style="text-align: right;">
+            <a ng-click="collapse()">
+                <i class="fa fa-angle-double-up" aria-hidden="true" style="font-size: larger"></i>
+                Moins
+            </a>
+        </p>
+    </div>
+</div>

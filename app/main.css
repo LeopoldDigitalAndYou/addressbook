@@ -14,7 +14,7 @@
 
 .addressEntry {
     clear: both;
-    border-bottom: 1px solid #aaaaaa;
+    border-top: 1px solid #aaaaaa;
 }
 ul li {
     list-style: none;

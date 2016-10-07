@@ -9,7 +9,6 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 		transclude: true,
 		link: function (scope, tElem, tAttrs, listController) {
 			scope.entryIndex = Gift.register(scope.giftApi);
-			scope.linkToDetails = !!listController;
 
 			scope.eraseEntry = function() {
 				tElem.css('text-decoration', 'line-through');
@@ -47,6 +46,7 @@ angular.module('addressApp').directive('addressEntry', function (Address, Gift) 
 
 			this.sendGift = function() {
 				Gift.sendGiftTo($scope.entryIndex);
+				console.log('$scope',$scope);
 			};
 			// end gifts
 

@@ -14,9 +14,12 @@
 
 <ul>
     <li ng-repeat="person in people | filter:uQuery | orderBy:'name' ">
-        <address-entry editing="" person-id="person.id">
-            <present-sender person-id="person.id"></present-sender>
-        </address-entry>
+        <collapsible collapsed="true">
+            <h2><a href="{{'#!/' + person.id}}">{{person.name}}</a></h2>
+            <address-entry editing="" person-id="person.id">
+                <present-sender person-id="person.id"></present-sender>
+            </address-entry>
+        </collapsible>
     </li>
 </ul>
 
